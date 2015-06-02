@@ -1,7 +1,7 @@
 // a2filter.go - A2 bloom filter
 //
 // To the extent possible under law, the Yawning Angel waived all copyright
-// and related or neighboring rights to or-ctl-filter, using the creative
+// and related or neighboring rights to a2filter, using the creative
 // commons "cc0" public domain dedication. See LICENSE or
 // <http://creativecommons.org/publicdomain/zero/1.0/> for full details.
 
