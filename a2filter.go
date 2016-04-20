@@ -17,9 +17,9 @@
 package a2filter
 
 import (
-	"crypto/rand"
 	"encoding/binary"
 	"fmt"
+	"io"
 	"math"
 	"sync"
 
@@ -51,10 +51,9 @@ type A2Filter struct {
 // postive rate p.  The actual in memory footprint of the datastructure will be
 // approximately 2^(mLn2+1) bits due to the double buffered nature of the
 // filter.
-func New(mLn2 int, p float64) (*A2Filter, error) {
+func New(rand io.Reader, mLn2 int, p float64) (*A2Filter, error) {
 	var key [16]byte
-	_, err := rand.Read(key[:])
-	if err != nil {
+	if _, err := io.ReadFull(rand, key[:]); err != nil {
 		return nil, err
 	}
 
